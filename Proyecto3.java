@@ -92,6 +92,7 @@ class Estacionamiento{
 		}
 
 		int check = dir > 0 ? longitud : -1;
+		
 		//Intenta avanzar un espacio
 		if (orientacion == 'h'){
 			if (coords[0] + check < 0 || coords[0] + check > 5){
@@ -127,10 +128,6 @@ class Estacionamiento{
 			tablero[coords[1] + check][coords[0]] = true;
 			coords[1] += dir;
 		}
-
-		/*for (int i = 0; i < 6; ++i){
-			System.out.println(Arrays.toString(tablero[i]));
-		}*/
 		
 		baterias[id] -= 1;
 
@@ -179,10 +176,18 @@ class Vehiculo extends Thread{
 
 		if (orientacion == 'h'){
 			for (int i = 0; i < longitud; ++i){
+				if (tablero[y][x + i]){
+					System.out.println("Dos vehículos chocan en la posición inicial");
+					System.exit(0);
+				}
 				tablero[y][x + i] = true;
 			}
 		}else{
 			for (int i = 0; i < longitud; ++i){
+				if (tablero[y + i][x]){
+					System.out.println("Dos vehículos chocan en la posición inicial");
+					System.exit(0);
+				}
 				tablero[y + i][x] = true;
 			}
 		}
