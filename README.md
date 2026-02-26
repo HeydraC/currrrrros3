@@ -20,7 +20,7 @@ Se asegura la exclusión mútua al usar métodos synchronized definidos en el mo
 # Instrucciones de uso
 Al ejecutar el proyecto este pedirá el nombre del archivo .txt, este deberá ser escrito sin el .txt. Es decir: si se llama "test.txt" se deberá escribir "test", el programa se encarga de agregar la extensión.
 
-El programa avisará y terminará en caso de que haya una colisión en el estado inicial.
+El programa avisará y terminará en caso de que haya una colisión o vehículos fuera del tablero en el estado inicial.
 
 Igualmente lo hará en caso de no definir un vehículo con id 0.
 
