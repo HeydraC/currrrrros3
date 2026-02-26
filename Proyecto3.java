@@ -2,6 +2,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 import java.io.IOException;
 import java.util.Random;
 
@@ -11,6 +12,10 @@ public class Proyecto3{
 		int[] baterias = null;
 		UnidadCarga[] cargadores = null;
 		Estacionamiento estacionamiento = null;
+		Scanner s = new Scanner(System.in);
+
+		System.out.print("Nombre del archivo TXT: ");
+		String archivo = s.nextLine();
 
 		boolean[][] tableroOriginal = {
 			{false, false, false, false, false, false},
@@ -22,7 +27,7 @@ public class Proyecto3{
 		}; //Todas las casillas empiezan sin ocupar
 
 		try {
-		    ArrayList<String> lineas = new ArrayList<>(Files.readAllLines(Paths.get("archivo.txt")));
+		    ArrayList<String> lineas = new ArrayList<>(Files.readAllLines(Paths.get(archivo + ".txt")));
 
 		    vehiculos = new Vehiculo[lineas.size() - 1];
 		    baterias = new int[lineas.size() - 1];
