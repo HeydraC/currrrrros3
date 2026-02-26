@@ -64,6 +64,8 @@ public class Proyecto3{
 			cargadores[i] = new UnidadCarga(estacionamiento);
 			cargadores[i].start();
 		}
+
+		s.close();
 	}
 }
 
