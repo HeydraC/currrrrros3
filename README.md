@@ -22,7 +22,7 @@ Al ejecutar el proyecto este pedirá el nombre del archivo .txt, este deberá se
 
 El programa avisará y terminará en caso de que haya una colisión o vehículos fuera del tablero en el estado inicial.
 
-Igualmente lo hará en caso de no definir un vehículo con id 0.
+Igualmente lo hará en caso de no definir un vehículo con id 0 o no definir cargadores.
 
 Si se encuentra una solución cada vehículo imprimirá su posición final antes de terminar el programa.
 
