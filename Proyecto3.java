@@ -13,6 +13,7 @@ public class Proyecto3{
 		UnidadCarga[] cargadores = null;
 		Estacionamiento estacionamiento = null;
 		Scanner s = new Scanner(System.in);
+		boolean id0 = false;
 
 		System.out.print("Nombre del archivo TXT: ");
 		String archivo = s.nextLine();
@@ -46,10 +47,24 @@ public class Proyecto3{
 		    	baterias[i] = Integer.parseInt(info[5].trim());
 
 		    	vehiculos[i] = new Vehiculo(id, orientacion, longitud, x, y, tableroOriginal);
+
+		    	if (id == 0) id0 = true;
+		    }
+
+		    if (!id0){
+		    	System.out.println("No se incluyó el vehículo 0");
+		    	System.exit(0);
 		    }
 
 		    String[] info = lineas.get(lineas.size() - 1).split(",");
-		    cargadores = new UnidadCarga[Integer.parseInt(info[1].trim())];
+		    int nCargadores = Integer.parseInt(info[1].trim());
+
+		    if (nCargadores <= 0){
+		    	System.out.println("No se incluyeron cargadores");
+		    	System.exit(0);
+		    }
+
+		    cargadores = new UnidadCarga[nCargadores];
 		} catch (IOException e) {
 		    e.printStackTrace();
 		}
@@ -174,18 +189,29 @@ class Vehiculo extends Thread{
 		x = _x;
 		y = _y;
 
+		if (x < 0 || x > 5 || y < 0 || y > 5){
+			System.out.println("Vehículo fuera del tablero");
+			System.exit(0);
+		}
+
 		if (orientacion == 'h'){
 			for (int i = 0; i < longitud; ++i){
-				if (tablero[y][x + i]){
-					System.out.println("Dos vehículos chocan en la posición inicial");
+				if (x + i > 5){
+					System.out.println("Vehículo fuera del tablero");
+					System.exit(0);
+				}else if (tablero[y][x + i]){
+					System.out.println("Hay una colisión en el estado inicial");
 					System.exit(0);
 				}
 				tablero[y][x + i] = true;
 			}
 		}else{
 			for (int i = 0; i < longitud; ++i){
-				if (tablero[y + i][x]){
-					System.out.println("Dos vehículos chocan en la posición inicial");
+				if (y + i > 5){
+					System.out.println("Vehículo fuera del tablero");
+					System.exit(0);
+				}else if (tablero[y + i][x]){
+					System.out.println("Hay una colisión en el estado inicial");
 					System.exit(0);
 				}
 				tablero[y + i][x] = true;
