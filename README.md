@@ -1,5 +1,5 @@
 # Recursos críticos
-Se identificaron 2 recursos críticos: El tablero y las baterías de los vehículos. Estos recursos son accedidos mediante el monitor Estacionamiento, y además se agregó un booleano que avisa a los vehículos que 
+Se identificaron 2 recursos críticos: El tablero y las baterías de los vehículos. Estos recursos son accedidos mediante el monitor Estacionamiento. Además de estos se agregó un booleano que avisa a los vehículos que 
 se liberó al vehículo 0.
 
 El tablero se implementó como una matriz de booleanos, donde una posición es *true* si está ocupada por un vehículo, las baterías de los vehículos se implementaron como un arreglo de enteros al que cada vehículo 
@@ -22,10 +22,12 @@ La aplicación se compila mediante el comando make y se ejecuta mediante el coma
 
 Al ejecutar el proyecto este pedirá el nombre del archivo .txt, este deberá ser escrito sin el .txt. Es decir: si se llama "test.txt" se deberá escribir "test", el programa se encarga de agregar la extensión.
 
+**IMPORTANTE:** los vehículos acceden al arreglo de baterías mediante su id, asegurarse de definir los vehículos con id que vayan de 0 a n-1. No importa el orden de los vehículos en el .txt.
+
 El programa avisará y terminará en caso de que haya una colisión o vehículos fuera del tablero en el estado inicial.
 
 Igualmente lo hará en caso de no definir un vehículo con id 0 o no definir cargadores.
 
 Si se encuentra una solución cada vehículo imprimirá su posición final antes de terminar el programa.
 
-**IMPORTANTE:** los vehículos acceden al arreglo de baterías mediante su id, asegurarse de definir los vehículos con id que vayan de 0 a n-1. No importa el orden de los vehículos en el .txt.
+Se incluyen 5 casos de prueba para comprobar la funcionalidad descrita.
