@@ -18,6 +18,8 @@ En caso de ser el vehículo 0, este revisa si ya fue liberado para avisar a los 
 Se asegura la exclusión mútua al usar métodos synchronized definidos en el monitor Estacionamiento y se evitan interbloqueos retornando cuando se intenta mover a una posición inválida, permitiendo esto volver a intentar en otra dirección o dar el turno a otro vehículo para moverse.
 
 # Instrucciones de uso
+La aplicación se compila mediante el comando make y se ejecuta mediante el comando make run.
+
 Al ejecutar el proyecto este pedirá el nombre del archivo .txt, este deberá ser escrito sin el .txt. Es decir: si se llama "test.txt" se deberá escribir "test", el programa se encarga de agregar la extensión.
 
 El programa avisará y terminará en caso de que haya una colisión o vehículos fuera del tablero en el estado inicial.
